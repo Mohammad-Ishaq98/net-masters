@@ -1,20 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --background: #fffefd;
+  --foreground: #171717; */
+
+  /* Homepage color palette */
+  --color-primary: #589581;
+  /* hero heading */
+  --color-secondary: #AFD639;
+  --container: 98.75rem;
+
+  /* Line heights */
 }
+
+/* -----------------------------------------
+   Tailwind Theme Tokens (Tailwind v4)
+----------------------------------------- */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* COLORS */
+  --container: 1254px;
+  /* --color-background: var(--background);
+  --color-foreground: var(--foreground); */
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
 
-  /* container width */
-
-  --container: 98.75rem;
+  /* FONTS (from next/font variables) */
+  --font-poppins: var(--font-poppins);
+  --font-prompt: var(--font-prompt);
+  --font-montserrat: var(--font-montserrat);
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -28,59 +44,90 @@
     width: 100%;
     max-width: var(--container);
     margin-inline: auto;
-    padding-inline: 1rem; /* mobile default */
+    padding-inline: 1rem;
+    /* mobile default */
+  }
+
+  .font-poppins {
+    font-family: var(--font-poppins), serif;
+  }
+
+  .font-prompt {
+    font-family: var(--font-prompt), serif;
+  }
+
+  .font-montserrat {
+    font-family: var(--font-montserrat), sans-serif;
   }
 
   /* sm (≥640px) */
   @media (min-width: 640px) {
     .template {
-      padding-inline: 1.5rem;
+      padding-inline: 0.1rem;
     }
   }
 
   /* md (≥768px) */
   @media (min-width: 768px) {
     .template {
-      padding-inline: 2rem;
+      padding-inline: 0.5rem;
     }
   }
 
   /* lg (≥1024px) */
   @media (min-width: 1024px) {
     .template {
-      padding-inline: 3rem;
+      padding-inline: 0.875rem;
     }
   }
 
   /* xl (≥1280px) */
   @media (min-width: 1280px) {
     .template {
-      padding-inline: 4rem;
+      padding-inline: 1.5rem;
     }
   }
 
   /* 2xl (≥1536px) */
   @media (min-width: 1536px) {
     .template {
-      padding-inline: 4.5rem;
+      padding-inline: 2.5rem;
     }
   }
+.zoomin {
+  animation: zoomin 20s ease-in-out forwards;
+  overflow: hidden;
+}
+ @keyframes zoomin {
+  0%   { background-size: 100% auto; }
+  50% { background-size: 110% auto; }
+  100% { background-size: 100% auto; }
 }
 
+@-webkit-keyframes zoomin {
+  0%   { background-size: 100% auto; }
+  50% { background-size: 110% auto; }
+  100% { background-size: 100% auto; }
+}
+}
 
+html{scroll-behavior: smooth;}
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  z-index: 10;
 }
 
-
+/* --------------------------------------------- navbar hover --------------------------------------------- */
 /* Circle */
 nav.circle ul li a {
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
+
 nav.circle ul li a:after {
   display: block;
   position: absolute;
@@ -96,6 +143,7 @@ nav.circle ul li a:after {
   border-radius: 50%;
   background: transparent;
 }
+
 nav.circle ul li a:hover:after {
   -webkit-animation: circle 1.5s ease-in forwards;
 }
@@ -114,6 +162,7 @@ nav.circle ul li a:hover:after {
     background: #4f3f3f;
     border-radius: 100%;
   }
+
   100% {
     background: #28746b;
     height: 5000%;

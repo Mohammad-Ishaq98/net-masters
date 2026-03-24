@@ -19,7 +19,6 @@ import {
   PanelsTopLeft,
   PanelTop,
 } from "lucide-react";
-//https://tennisclub.themerex.net/coaching/
 export const iconMap = {
   Bolt,
   ShoppingBag,

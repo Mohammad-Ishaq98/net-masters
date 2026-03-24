@@ -12,7 +12,7 @@ const NavBar = () => {
         <div className="template mx-auto">
           <nav className="grid grid-cols-12 items-center circle">
             <div className="col-span-6 lg:col-span-3 z-[999] relative h-[6.3rem] w-full"> 
-              <Image src="/home/net-masters.png" alt="logo" className="object-contain" fill/>
+              <Image src="/home/net-masters.png" alt="logo" className="object-contain" fill loading="eager"/>
             </div>
 
             <ul className="hidden col-span-6 lg:col-span-9 lg:flex lg:justify-end lg:items-center lg:gap-x-2">
@@ -27,9 +27,9 @@ const NavBar = () => {
                 ml-[1rem]
                 bg-[#5771F5]
                 px-[1.25rem]
+                rounded-lg
                 py-[0.875rem]
-                shadow-md
-                hover:cursor-pointer
+                shadow-none transition-shadow duration-800 cursor-pointer hover:shadow-lg hover:shadow-gray-800
                 "
                 handleClick={() => {}}
               />

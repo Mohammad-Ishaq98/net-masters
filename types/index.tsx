@@ -1,6 +1,5 @@
-
 import { iconMap } from "@/app/lib/iconMap";
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 //////////////////*********** navbar prop ***********//////////////////
 
@@ -46,4 +45,5 @@ export interface CustomButtonProps {
   containerStyles?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   btnType?: "button" | "submit";
+  children?: ReactNode;
 }
