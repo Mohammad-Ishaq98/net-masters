@@ -27,7 +27,7 @@ export interface DesktopMenuProps {
 export interface SubMenuItem {
   name: string;
   desc?: string;
-  icon?: string;
+  icon?: keyof typeof iconMap;
   href?: string;
 }
 
