@@ -3,7 +3,16 @@ import { motion, Variants } from "framer-motion";
 import CustomButtons from "./component/CustomButtons";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Smartphone } from "lucide-react";
+import Slider from "./component/Slider";
+import Calender from "./component/Calender";
+import CounterOnScroll from "./component/CounterOnScroll";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
+import Accordion from "./component/Accordion";
 
 // who are we start animation
 const fadeLeft: Variants = {
@@ -57,41 +66,29 @@ export default function Home() {
   return (
     <>
       {/* hero section start*/}
-      <section className="bg-[url('/home/home-bg.jpg')] bg-no-repeat bg-cover zoomin h-screen overflow-hidden">
+      <section className="hero-bg max-lg:bg-black/50">
         {/* top section */}
         <div className="template">
-          <div className="grid grid-cols-12 py-[8rem]">
-            <div className="col-span-8">
+          <div className="grid grid-cols-12 py-[2.5rem] md:py-[8rem]">
+            <div className="col-span-12 lg:col-span-8">
               <div className="hero_right_text">
-                <p className="text-lg mb-[0.45rem] text-white">
+                <p className="text-sm md:text-lg mb-[0.45rem]  lg:text-white">
                   Premium Court and Couching{" "}
                 </p>
-                <h1 className="text-7xl text-white mb-[5rem]">
+                <h1 className="text-2xl md:text-5xl xl:text-7xl lg:text-white mb-[1rem] md:mb-[5rem]">
                   Keep your body in <br className="hidden lg:inline-block" />{" "}
                   shape with rigorous <br className="hidden lg:inline-block" />{" "}
                   trainning session
                 </h1>
-                <CustomButtons
-                  title="Book Now"
-                  btnType="button"
-                  containerStyles="
-                  ml-[1rem]
-                  bg-[#5771F5]
-                  px-[4.25rem]
-                  rounded-lg
-                  py-[0.875rem]
-                  bg-secondary text-white cursor-pointer
-                  "
-                  handleClick={() => {}}
-                />
+                <button className="hero_btn">Book Now</button>
               </div>
             </div>
-            <div className="col-span-4 flex justify-end">
+            <div className="col-span-12 lg:col-span-4 flex justify-end">
               <div className="hero_left_text mt-[3rem]">
-                <p className="text-2xl mb-[1rem]">
+                <p className="text-xl md:text-2xl mb-[1rem]">
                   Open also for pickleball and table tennis
                 </p>
-                <p>
+                <p className="text-xs md:text-sm lg:text-lg">
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa
                   dolore vitae porro fugit ratione doloremque, hic itaque veniam
                   nisi laudantium aperiam nemo repudiandae exercitationem minus?
@@ -103,9 +100,11 @@ export default function Home() {
         </div>
 
         {/* bottom section */}
-        <div className="mx-[5rem] flex justify-between">
-          <div className="left flex text-xl justify-around">
-            <a href="#who">Scroll Down</a>
+        <div className="sm:mx-[1rem] md:mx-[5rem] flex sm:justify-between max-sm:flex-col">
+          <div className="left flex text-xs md:text-xl md:justify-around">
+            <a href="#who" className="text-black">
+              Scroll Down
+            </a>
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -127,8 +126,9 @@ export default function Home() {
               <polyline points="19 12 12 19 5 12" />
             </motion.svg>
           </div>
+
           <div className="right">
-            <div className="social_wrapper space-x-[2.5rem]">
+            <div className="social_wrapper text-xs md:text-lg lg:text-xl space-x-[.5rem] md:space-x-[2.5rem] max-md:mt-5">
               <Link href="#">Instagram</Link>
               <Link href="#">YouTube</Link>
               <Link href="#">Facebook</Link>
@@ -140,20 +140,22 @@ export default function Home() {
       {/* hero section end*/}
 
       {/* who are we start */}
-      <section id="who" className="bg-white py-[7rem]">
+      <section id="who" className="bg-white py-[3rem] lg:py-[7rem]">
         <div className="template">
           <div className="text-center">
-            <p className="text-lg text-black mb-[5rem]">Who are we</p>
+            <p className="text-lg text-black mb-[2rem] lg:mb-[5rem]">
+              Who are we
+            </p>
           </div>
           <div className="grid grid-cols-12">
             <motion.div
-              className="col-span-6"
+              className="col-span-12 lg:col-span-6"
               variants={fadeLeft}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="img_wrapper relative h-[60rem] w-full ml-[3.375rem]">
+              <div className="img_wrapper relative h-[25rem] lg:h-[40rem] 2xl:h-[60rem] w-full 2xl:ml-[3.375rem]">
                 <Image
                   src="/home/who-r-we-left.jpg"
                   className="object-contain"
@@ -165,23 +167,23 @@ export default function Home() {
 
             {/* RIGHT CONTENT */}
             <motion.div
-              className="col-span-6"
+              className="col-span-12 lg:col-span-6"
               variants={fadeRight}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-black text-2xl font-montserrat font-bold">
+              <h3 className="text-black text-xl lg:text-2xl max-lg:text-center font-montserrat font-bold">
                 Everyone is welcome at our tennis club!
               </h3>
 
-              <p className="mt-[2rem] text-black text-xl mb-[10rem]">
+              <p className="mt-[0.8rem] lg:mt-[2rem] text-black max-lg:text-center text-sm lg:text-xl mb-[1.5rem] lg:mb-[5rem] 2xl:mb-[10rem]">
                 Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
                 sit <br className="hidden lg:inline-block" />
                 aspernatur aut odit aut fugit.
               </p>
 
-              <div className="img_wrapper relative h-[60rem] w-full -ml-[3.375rem]">
+              <div className="img_wrapper relative h-[25rem] lg:h-[40rem] 2xl:h-[60rem] w-full 2xl:-ml-[3.375rem]">
                 <Image
                   src="/home/who-r-we-right.jpg"
                   className="object-contain"
@@ -196,11 +198,11 @@ export default function Home() {
       {/* who are we end */}
 
       {/* our programmes start */}
-      <section className="relative bg-[url('/home/our-programme.jpg')] bg-no-repeat bg-cover bg-center w-full before:absolute before:inset-0 before:bg-green-400 before:opacity-75 py-[10rem]">
+      <section className="relative bg-[url('/home/our-programme.jpg')] bg-no-repeat bg-cover bg-center w-full before:absolute before:inset-0 before:bg-green-400 before:opacity-75 py-[2rem] lg:py-[10rem]">
         <div className="template relative z-100">
           <div className="text-center">
-            <p className="text-white text-lg">Our Programme</p>
-            <h3 className="text-white text-4xl my-[1rem] font-extrabold">
+            <p className="text-white text-sm lg:text-lg">Our Programme</p>
+            <h3 className="text-white text-2xl lg:text-3xl xl:text-4xl my-[1rem] font-extrabold">
               Find the one for you
             </h3>
           </div>
@@ -214,7 +216,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
             >
               <div className="group relative max-w-sm overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-200 hover:shadow-lg">
-                <div className="relative h-[40rem]">
+                <div className="relative h-[30rem] lg:h-[40rem]">
                   <div className="absolute inset-0">
                     <img
                       src="/home/our-programme-1.jpg"
@@ -257,7 +259,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
             >
               <div className="group relative max-w-sm overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-200 hover:shadow-lg">
-                <div className="relative h-[40rem]">
+                <div className="relative h-[30rem] lg:h-[40rem]">
                   <div className="absolute inset-0">
                     <img
                       src="/home/our-programme-2.jpg"
@@ -293,14 +295,14 @@ export default function Home() {
               </div>
             </motion.div>
             <motion.div
-              className="w-full max-w-sm"
+              className="w-full max-w-sm max-md:ml-[0%] max-lg:ml-[105%] "
               variants={appearBottom3}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
             >
               <div className="group relative max-w-sm overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-200 hover:shadow-lg">
-                <div className="relative h-[40rem]">
+                <div className="relative h-[30rem] lg:h-[40rem]">
                   <div className="absolute inset-0">
                     <img
                       src="/home/our-programme-3.jpg"
@@ -337,7 +339,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <div className="flex flex-col items-center justify-center mt-[10rem]">
+          <div className="flex flex-col items-center justify-center mt-[4rem] lg:mt-[10rem]">
             <div className="w-15 h-15 bg-amber-50 rounded-full flex items-center justify-center overflow-hidden">
               <img
                 src="/home/paper-plane.png"
@@ -345,7 +347,7 @@ export default function Home() {
                 className="w-10 h-10 object-contain"
               />
             </div>
-            <h3 className="text-[3rem] font-semibold mt-[5rem] text-center">
+            <h3 className="text-[1.5rem] md:text-[2rem] xl:text-[3rem] font-semibold lg:mt-[2rem] xl:mt-[5rem] text-center">
               Get the best blog stories <br />
               into your inbox!
             </h3>
@@ -358,7 +360,10 @@ export default function Home() {
                 className="
                 ml-4
                 w-full
-                bg-transparent
+                font-bold
+                text-lg
+                xl:text-xl
+                text-white
                 border-b border-white/50
                 outline-none
                 pb-2
@@ -396,9 +401,9 @@ export default function Home() {
       {/* our programmes end */}
 
       {/* vdo section start */}
-      <section className="h-screen w-full">
+      <section className="h-auto sm:h-screen w-full">
         <video
-          className="w-full h-full object-cover"
+          className="w-full h-1/2 sm:h-full object-cover"
           controls
           preload="none"
           poster="/home/video/poster.jpg"
@@ -407,6 +412,199 @@ export default function Home() {
         </video>
       </section>
       {/* vdo section end */}
+
+      {/* slider start */}
+      <section className="py-[2.4rem] lg:py-[5rem] bg-white">
+        <Slider />
+      </section>
+      {/* slider end */}
+
+      {/* Contact us start */}
+      <section className="bg-amber-50 py-[0rem] lg:py-[4rem]">
+        <div className="template">
+          <div className="grid grid-cols-12 max-xl:gap-x-6">
+            <div className="col-span-12 lg:col-span-5">
+              <Calender />
+            </div>
+            <div className="col-span-12 lg:col-span-7 text-[#423333] text-center lg:text-left">
+              <p className="text-sm lg:text-lg max-lg:mt-10">Contact us</p>
+
+              <h3 className="my-[1rem] text-2xl lg:text-3xl xl:text-5xl">
+                Signup for your first class
+              </h3>
+
+              <p className="mb-[1.256rem] text-lg lg:text-xl lg:font-semibold ">
+                Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. <br /> Ut enim ad minim.
+              </p>
+
+              <div className="location_wrapper max-lg:ml-[50%] max-lg:-translate-x-[50%] text-lg lg:text-xl space-y-5">
+                <div className="flex ">
+                  <MapPin />{" "}
+                  <p className="ml-[1rem] text-xs sm:text-xl">
+                    11792 London Rd, Derby, CA 43117, US
+                  </p>
+                </div>
+                <div className="flex">
+                  <Smartphone />{" "}
+                  <p className="ml-[1rem] text-xs sm:text-xl">
+                    +88 015 81*******
+                  </p>
+                </div>
+                <div className="flex">
+                  <Mail />{" "}
+                  <p className="ml-[1rem] text-xs sm:text-xl">
+                    specimen@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-[4rem]">
+            <CounterOnScroll />
+          </div>
+        </div>
+      </section>
+      {/* Contact us end */}
+
+      {/* Q & A start  */}
+      <section className="bg-white py-[0.8rem] md:py-[4rem]">
+        <div className="template">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-40 max-lg:gap-y-3 items-center">
+            <div className="left">
+              <div className="text_box">
+                <p className="text-sm sm:text-lg text-black">q&a</p>
+                <h3 className="text-xl sm:text-3xl lg:text-5xl text-black my-[1rem]">
+                  We're proud to be the{" "}
+                  <br className="hidden xl:inline-block" /> best at training
+                </h3>
+              </div>
+              <Accordion />
+            </div>
+
+            <div className="right relative max-md:mb-[15rem]">
+              <div className="img_wrapper relative h-[18rem] sm:h-[28rem] w-full">
+                <Image
+                  src="/home/q&a.jpg"
+                  fill
+                  alt="two practicing person"
+                  className="object-contain"
+                />
+              </div>
+
+              <div className="two_div flex flex-row">
+                <div className="secondary_color bg-secondary pl-2 sm:pl-3 pr-3 sm:pr-6 py-5 absolute left-[0%] sm:left-[52%] top-[80%] sm:top-[61%]">
+                  <p className="text-sm md:text-lg">Coaches</p>
+                  <p className="text-lg md:text-2xl">100 +</p>
+                  <p className="text-sm md:text-lg">
+                    Sed do eiusmod ipiscing elit
+                  </p>
+                </div>
+                <div className="secondary_color bg-black pl-1.5 sm:pl-3 pr-3 sm:pr-6 py-5 absolute left-[8%] lg:-left-[10%] top-[124%] sm:top-[73%] md:top-[80%] lg:top-[90%]">
+                  <p className="text-sm md:text-lg">Coaches</p>
+                  <p className="text-lg md:text-2xl">100 +</p>
+                  <p className="text-sm md:text-lg">
+                    Sed do eiusmod ipiscing elit
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Q & A end  */}
+
+      {/* blog start */}
+      <section className="relative bg-[url('/home/blog.jpg')] bg-no-repeat bg-cover bg-center w-full before:absolute before:inset-0 before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-r before:from-[#d3fb0a] before:to-[#232a01] before:opacity-75 py-[2.5rem] lg:py-[5rem] ">
+        <div className="template relative z-100">
+          <div className="text-center">
+            <p className="text-white text-sm xl:text-lg">From The Blog</p>
+            <h2 className="text-white text-3xl xl:text-5xl mt-2 mb-10">
+              {" "}
+              Latest articles
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-5 max-lg:gap-y-5">
+            <div className="card card-border bg-white">
+              <div className="card-body py-[0.5rem] lg:py-[4rem] pl-6 lg:pl-5 xl:pl-10 pr-3.5 lg:pr-5 xl:pr-10">
+                <h2 className="card-title text-black text-xl xl:text-2xl">
+                  How to Prepare yourself
+                </h2>
+                <p className="text-gray-500 text-sm xl:text-lg">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia
+                  quisquam autem similique facilis iusto? Tempore quisquam,
+                  error doloribus voluptate sed distinctio, aperiam assumenda
+                  consectetur nostrum, ullam mollitia! Pariatur, nam sint?
+                </p>
+                <div className="card-actions justify-end mt-5 lg:mt-10">
+                  <motion.div
+                    whileHover={{ x: 8 }} // optional: moves the arrow a bit to the right
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <ArrowRight
+                      className="size-10 text-black transition-all duration-300 
+                 hover:size-10 hover:w-16"
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+
+            <div className="card card-border bg-white">
+              <div className="card-body py-[0.5rem] lg:py-[4rem] pl-6 lg:pl-5 xl:pl-10 pr-3.5 lg:pr-5 xl:pr-10">
+                <h2 className="card-title text-black text-xl xl:text-2xl">
+                  Pass training with modern way!
+                </h2>
+                <p className="text-gray-500 text-sm xl:text-lg">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                  ducimus a aut tempore quas qui nisi placeat praesentium
+                  doloribus eaque, expedita culpa quisquam mollitia maxime animi
+                  magnam repellat explicabo reiciendis!
+                </p>
+                <div className="card-actions justify-end mt-5 lg:mt-10">
+                  <motion.div
+                    whileHover={{ x: 8 }} // optional: moves the arrow a bit to the right
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <ArrowRight
+                      className="size-10 text-black transition-all duration-300 
+                 hover:size-10 hover:w-16"
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+
+            <div className="card card-border bg-white">
+              <div className="card-body py-[0.5rem] lg:py-[4rem] pl-6 lg:pl-5 xl:pl-10 pr-3.5 lg:pr-5 xl:pr-1 mt-50lg:">
+                <h2 className="card-title text-black text-xl xl:text-2xl">
+                  Luxury Courts with comfy way
+                </h2>
+                <p className="text-gray-500 text-sm xl:text-lg">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Numquam, laudantium. Exercitationem, ab excepturi. Magni
+                  sapiente quisquam sunt molestiae possimus? Aut ea deleniti
+                  illo magnam atque quam blanditiis enim voluptatem nisi?
+                </p>
+                <div className="card-actions justify-end mt-5 lg:mt-10">
+                  <motion.div
+                    whileHover={{ x: 8 }} // optional: moves the arrow a bit to the right
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <ArrowRight
+                      className="size-10 text-black transition-all duration-300 
+                 hover:size-10 hover:w-16"
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* blog end */}
     </>
   );
 }

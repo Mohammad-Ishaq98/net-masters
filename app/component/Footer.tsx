@@ -1,121 +1,28 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
   return (
     <>
-      <footer className="w-full">
-        <div className="container">
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 ">
-            <div className="lg:mx-auto text-left">
-              <h4 className="">Pagedone</h4>
-              <ul className="">
-                <li className="">
-                  <a href="javascript:;" className="">
-                    Home
-                  </a>
-                </li>
-                <li className="">
-                  <a href="javascript:;" className=" ">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:;" className=" ">
-                    Pricing
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="lg:mx-auto text-left ">
-              <h4 className="">Pagedone</h4>
-              <ul className="">
-                <li className="">
-                  <a href="javascript:;" className="">
-                    Home
-                  </a>
-                </li>
-                <li className="">
-                  <a href="javascript:;" className="">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:;" className="">
-                    Pricing
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="lg:mx-auto text-left">
-              <h4 className="">Products</h4>
-              <ul className="">
-                <li className="">
-                  <a href="javascript:;" className="">
-                    Figma UI System
-                  </a>
-                </li>
-                <li className="">
-                  <a href="javascript:;" className="">
-                    Icons Assets
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:;" className="">
-                    Responsive Blocks
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="lg:mx-auto text-left ">
-              <h4 className="">Resources</h4>
-              <ul className="">
-                <li className="">
-                  <a href="javascript:;" className="">
-                    FAQs
-                  </a>
-                </li>
-                <li className="">
-                  <a href="javascript:;" className="">
-                    Quick Start
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:;" className="">
-                    Documentation
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="lg:mx-auto text-left ">
-              <h4 className="">Support</h4>
-              <ul className="">
-                <li className="">
-                  <a href="javascript:;" className="">
-                    Customer Support
-                  </a>
-                </li>
-                <li className="">
-                  <a href="javascript:;" className="">
-                    License
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:;" className="">
-                    Terms & Conditions
-                  </a>
-                </li>
-              </ul>
+      <footer className="bg-gradient-to-r from-[#030c1d] to-[#01051b] py-[7rem]">
+        <div className="template">
+          <div className="top">
+            <div className="social_wrapper space-x-3 sm:space-x-[2.5rem] text-xs sm:text-xl">
+              <Link href="#">Instagram</Link>
+              <Link href="#">YouTube</Link>
+              <Link href="#">Facebook</Link>
+              <Link href="#">X (Former Twitter)</Link>
             </div>
           </div>
+          <div className="center mt-[3rem] md:mt-[8rem] mt-[1rem] md:mb-[3rem]">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl 2xl:text-6xl text-amber-50">
+              Let's work together <br />
+              just drop us a line - <Link href="#">info@xmpl.com</Link>
+            </h1>
+          </div>
 
-          <div className=" border-t border-gray-200">
-            <div className="flex items-center justify-center ">
-              <span className="">
-                ©<a href="https://pagedone.io/">pagedone</a> 2024, All rights
-                reserved.
-              </span>
-            </div>
+          <div className="bottom text-xs sm:text-lg">
+            <p>Net Masters © 2026. All Rights Reserved. </p>
           </div>
         </div>
       </footer>
