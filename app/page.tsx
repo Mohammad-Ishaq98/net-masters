@@ -483,7 +483,7 @@ export default function Home() {
               <Accordion />
             </div>
 
-            <div className="right relative max-md:mb-[15rem]">
+            <div className="right relative max-sm:mb-60">
               <div className="img_wrapper relative h-[18rem] sm:h-[28rem] w-full">
                 <Image
                   src="/home/q&a.jpg"
@@ -578,7 +578,7 @@ export default function Home() {
             </div>
 
             <div className="card card-border bg-white">
-              <div className="card-body py-[0.5rem] lg:py-[4rem] pl-6 lg:pl-5 xl:pl-10 pr-3.5 lg:pr-5 xl:pr-1 mt-50lg:">
+              <div className="card-body py-[0.5rem] lg:py-[4rem] pl-6 lg:pl-5 xl:pl-10 pr-3.5 lg:pr-5 xl:pr-10">
                 <h2 className="card-title text-black text-xl xl:text-2xl">
                   Luxury Courts with comfy way
                 </h2>
